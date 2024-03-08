@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Books;
 use App\Http\Requests\StoreBooksRequest;
 use App\Http\Requests\UpdateBooksRequest;
-
+use Symfony\Component\HttpFoundation\Request;
 class BooksController extends Controller
 {
     /**
@@ -19,18 +19,18 @@ class BooksController extends Controller
 
     }
 
-    public function addStock(Books $book, $request)
+    public function addStock(Books $book, $amount)
     {
-        $book->stock = $book->stock + $request->stock;
+        $book->stock = $book->stock + $amount;
         $book->save();
         return response()->json("Stock has been added", 200);
         
         //return response()->json($books, 200);
 
     }
-    public function removeStock(Books $book, $request)
+    public function removeStock(Books $book, $amount)
     {
-        $book->stock = $book->stock - $request->stock;
+        $book->stock = $book->stock - $amount;
         $book->save();
         return response()->json("Stock has been removed", 200);
 
