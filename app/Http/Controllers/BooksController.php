@@ -19,6 +19,22 @@ class BooksController extends Controller
 
     }
 
+    public function addStock(Books $book, $request)
+    {
+        $book->stock = $book->stock + $request->stock;
+        $book->save();
+        return response()->json("Stock has been added", 200);
+        
+        //return response()->json($books, 200);
+
+    }
+    public function removeStock(Books $book, $request)
+    {
+        $book->stock = $book->stock - $request->stock;
+        $book->save();
+        return response()->json("Stock has been removed", 200);
+
+    }
     /**
      * Show the form for creating a new resource.
      */
