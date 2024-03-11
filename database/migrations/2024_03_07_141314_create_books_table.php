@@ -16,7 +16,13 @@ return new class extends Migration
             $table->string('name');
             $table->string('isbn');
             $table->string('author');
+            $table->string('imprenta');
+
+
             $table->integer('stock')->default(0);
+            $table->decimal('price')->default(0);
+            $table->decimal('sellingAt')->default(0);
+
             $table->timestamps();
         });
     }
