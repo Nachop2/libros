@@ -30,6 +30,9 @@ class BooksController extends Controller
     }
     public function removeStock(Books $book, $amount)
     {
+        if(($book->stock - $amount)< 0){
+            return response()->json("Stock cannot be negative", 400);
+        }
         $book->stock = $book->stock - $amount;
         $book->save();
         return response()->json("Stock has been removed", 200);
