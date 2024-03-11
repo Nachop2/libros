@@ -51,7 +51,13 @@ class BooksController extends Controller
      */
     public function store(StoreBooksRequest $request)
     {
-        //
+        $book = Books::create([
+            'name' => $request->name,
+            'isbn' => $request->isbn,
+            'author' => $request->author,
+        ]);
+        $book->save();
+        return response()->json("The book has been created", 200);
     }
 
     /**

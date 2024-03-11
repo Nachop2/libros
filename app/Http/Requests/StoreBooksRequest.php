@@ -11,7 +11,7 @@ class StoreBooksRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,9 @@ class StoreBooksRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'name' => 'required',
+            'isbn' => 'required|regex:/^[0-9]{9}[0-9X]$/',
+            'author' => 'required',
         ];
     }
 }
