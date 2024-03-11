@@ -25,6 +25,7 @@ class StoreBooksRequest extends FormRequest
             'name' => 'required',
             'isbn' => 'required|regex:/^[0-9]{9}[0-9X]$/',
             'author' => 'required',
+            // prepare isbn13 '/^97[89][0-9]{10}$/'
         ];
     }
 }
