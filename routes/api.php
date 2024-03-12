@@ -25,3 +25,4 @@ Route::put('/book/add/{book}/{amount}', [BooksController::class, 'addStock']);
 Route::put('/book/sell/{book}/{amount}', [BooksController::class, 'removeStock']);
 Route::post('/book', [BooksController::class, 'store']);
 Route::get('/book/{book}', [BooksController::class, 'show']);
+Route::put('/book/{book}', [BooksController::class, 'update']);
