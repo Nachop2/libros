@@ -58,6 +58,7 @@ class BooksController extends Controller
             'price' => $request->price,
             'sellingAt' => $request->sellingAt,
         ]);
+        $book->stock = $request->stock;
         $book->save();
         return response()->json("The book has been created", 200);
     }
