@@ -55,6 +55,9 @@ class BooksController extends Controller
             'name' => $request->name,
             'isbn' => $request->isbn,
             'author' => $request->author,
+            'imprenta' => $request->imprenta,
+            'price' => $request->price,
+            'sellingAt' => $request->sellingAt,
         ]);
         $book->save();
         return response()->json("The book has been created", 200);
@@ -63,8 +66,9 @@ class BooksController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Books $books)
+    public function show(Books $book)
     {
+        return response()->json($book);
         //
     }
 

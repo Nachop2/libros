@@ -13,5 +13,8 @@ class Books extends Model
         'name',
         'isbn',
         'author',
+        'imprenta',
+        'price',
+        'sellingAt'
     ];
 }
