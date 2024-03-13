@@ -127,8 +127,9 @@ class BooksController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Books $books)
+    public function destroy(Books $book)
     {
-        //
+        $book->delete();
+        return response()->json("El libro se elimino con exito",200);
     }
 }

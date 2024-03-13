@@ -26,3 +26,4 @@ Route::put('/book/sell/{book}/{amount}', [BooksController::class, 'removeStock']
 Route::post('/book', [BooksController::class, 'store']);
 Route::get('/book/{book}', [BooksController::class, 'show']);
 Route::put('/book/{book}', [BooksController::class, 'update']);
+Route::delete('/book/{book}', [BooksController::class, 'destroy']);
