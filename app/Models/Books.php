@@ -17,4 +17,9 @@ class Books extends Model
         'price',
         'sellingAt'
     ];
+
+    public function invoices()
+    {
+        return $this->belongsToMany('Invoice');
+    }
 }

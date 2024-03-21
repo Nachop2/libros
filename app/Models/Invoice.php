@@ -8,4 +8,18 @@ use Illuminate\Database\Eloquent\Model;
 class Invoice extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'clientName',
+        'clientAddress',
+        'clientCity',
+        'clientZip',
+        'clientCountry',
+        'invoiceDate'
+    ];
+
+    public function books()
+    {
+        return $this->hasMany('Books');
+    }
 }
