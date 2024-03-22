@@ -29,7 +29,18 @@ class InvoiceController extends Controller
      */
     public function store(StoreInvoiceRequest $request)
     {
-        //
+        $invoice = Invoice::create([
+            'clientName' => $request->clientName,
+            'clientAddress' => $request->clientAddress,
+            'clientCity' => $request->clientCity,
+            'clientZip' => $request->clientZip,
+            'clientCountry' => $request->clientCountry,
+            'invoiceDate' => $request->invoiceDate,
+            // prepare isbn13 '/^97[89][0-9]{10}$/'
+        ]);
+        // 'name' => $request->name,
+        $invoice->save();
+        return response()->json("The invoice has been created", 200);
     }
 
     /**

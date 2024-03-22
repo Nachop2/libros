@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 
 
 use App\Http\Controllers\BooksController;
+use App\Http\Controllers\InvoiceController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -27,3 +28,5 @@ Route::post('/book', [BooksController::class, 'store']);
 Route::get('/book/{book}', [BooksController::class, 'show']);
 Route::put('/book/{book}', [BooksController::class, 'update']);
 Route::delete('/book/{book}', [BooksController::class, 'destroy']);
+
+Route::post('/invoice', [InvoiceController::class, 'store']);

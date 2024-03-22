@@ -11,7 +11,7 @@ class StoreInvoiceRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,14 @@ class StoreInvoiceRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'clientName' => 'required',
+            'clientAddress' => 'required',
+            'clientCity' => 'required',
+            'clientZip' => 'required',
+            'clientCountry' => 'required',
+            'invoiceDate' => 'nullable',
+            // prepare isbn13 '/^97[89][0-9]{10}$/'
         ];
+
     }
 }

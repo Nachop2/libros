@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('clientCity');
             $table->string('clientZip');
             $table->string('clientCountry');
-            $table->dateTime('invoiceDate');
+            $table->dateTime('invoiceDate')->nullable();
 
             $table->timestamps();
         });

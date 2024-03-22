@@ -12,6 +12,10 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('books_invoice', function (Blueprint $table) {
+            $table->unsignedBigInteger("book_id");
+            $table->unsignedBigInteger("invoice_id");
+
+
             $table->foreign('book_id')->references('id')->on('books');
             $table->foreign('invoice_id')->references('id')->on('invoices');
             $table->integer('amountSold');
