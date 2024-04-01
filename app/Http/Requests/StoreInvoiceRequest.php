@@ -27,6 +27,7 @@ class StoreInvoiceRequest extends FormRequest
             'clientCity' => 'required',
             'clientZip' => 'required',
             'clientCountry' => 'required',
+            'books' => 'required',
             'invoiceDate' => 'nullable',
             // prepare isbn13 '/^97[89][0-9]{10}$/'
         ];

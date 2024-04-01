@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Invoice;
 use App\Http\Requests\StoreInvoiceRequest;
 use App\Http\Requests\UpdateInvoiceRequest;
+use App\Models\Books;
 
 class InvoiceController extends Controller
 {
@@ -40,6 +41,14 @@ class InvoiceController extends Controller
         ]);
         // 'name' => $request->name,
         $invoice->save();
+
+        foreach ($request->books as $book) {
+            $bookSold = Books::find($book["id"]);
+            $bookSold->stock -= $book["chosenQuantity"];
+            $bookSold->save();
+            $invoice->books()->attach($book["id"],['amountSold' => $book["chosenQuantity"],'donation' => filter_var($book["donation"], FILTER_VALIDATE_BOOLEAN)]);
+        }
+
         return response()->json("The invoice has been created", 200);
     }
 
