@@ -28,5 +28,5 @@ Route::post('/book', [BooksController::class, 'store']);
 Route::get('/book/{book}', [BooksController::class, 'show']);
 Route::put('/book/{book}', [BooksController::class, 'update']);
 Route::delete('/book/{book}', [BooksController::class, 'destroy']);
-
+Route::get('/books/search', [BooksController::class, 'search']);
 Route::post('/invoice', [InvoiceController::class, 'store']);

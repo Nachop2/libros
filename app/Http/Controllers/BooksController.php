@@ -14,9 +14,21 @@ class BooksController extends Controller
      */
     public function index()
     {
-
-        $books = Books::orderBy('name')->get();
+        $books = Books::orderBy('name')->paginate(10);
         return response()->json($books, 200);
+    }
+
+    public function search(Request $request)
+    {
+        $query = Books::query();
+
+        if ($request->search ) {
+            $query->where('name', 'LIKE', '%' . $request->search . '%')->orderBy('name');
+        }
+
+        $books = $query->paginate(10); // 10 is the number of items per page
+
+        return response()->json($books);
     }
 
     public function addStock(Books $book, $amount)
