@@ -30,3 +30,4 @@ Route::put('/book/{book}', [BooksController::class, 'update']);
 Route::delete('/book/{book}', [BooksController::class, 'destroy']);
 Route::get('/books/search', [BooksController::class, 'search']);
 Route::post('/invoice', [InvoiceController::class, 'store']);
+Route::get('/invoice/{invoice}', [InvoiceController::class, 'show']);

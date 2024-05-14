@@ -57,7 +57,8 @@ class InvoiceController extends Controller
      */
     public function show(Invoice $invoice)
     {
-        //
+        $invoice = $invoice->load("books");
+        return response()->json($invoice);
     }
 
     /**
