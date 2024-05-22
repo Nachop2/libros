@@ -32,8 +32,10 @@ class InvoiceController extends Controller
     {
         $invoice = Invoice::create([
             'clientName' => $request->clientName,
+            'clientCountry' => $request->clientCountry,
             'clientAddress' => $request->clientAddress,
             'clientLocation' => $request->clientLocation,
+            
             'clientCIF' => $request->clientCIF,
             'tax' => $request->tax,
         ]);
@@ -47,7 +49,7 @@ class InvoiceController extends Controller
             $invoice->books()->attach($book["id"],['amountSold' => $book["chosenQuantity"],'priceSold' => $bookSold->sellingAt,'donation' => filter_var($book["donation"], FILTER_VALIDATE_BOOLEAN)]);
         }
 
-        return response()->json("The invoice has been created", 200);
+        return response()->json($invoice->id, 200);
     }
 
     /**
