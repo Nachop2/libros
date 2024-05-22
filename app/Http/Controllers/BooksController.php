@@ -15,6 +15,7 @@ class BooksController extends Controller
     public function index()
     {
         $books = Books::orderBy('name')->paginate(10);
+
         return response()->json($books, 200);
     }
 
@@ -27,6 +28,9 @@ class BooksController extends Controller
         }
 
         $books = $query->paginate(10); // 10 is the number of items per page
+        if($request->search){
+            $books->appends(['search' => $request->input('search')]);
+        }
 
         return response()->json($books);
     }
