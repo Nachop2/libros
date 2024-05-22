@@ -19,8 +19,9 @@ use App\Http\Controllers\InvoiceController;
 
 Route::middleware(['auth:sanctum'])->get('/user', function (Request $request) {
     return $request->user();
-});
 
+    
+});
 Route::get('/books', [BooksController::class, 'index']);
 Route::put('/book/add/{book}/{amount}', [BooksController::class, 'addStock']);
 Route::put('/book/sell/{book}/{amount}', [BooksController::class, 'removeStock']);
@@ -31,3 +32,4 @@ Route::delete('/book/{book}', [BooksController::class, 'destroy']);
 Route::get('/books/search', [BooksController::class, 'search']);
 Route::post('/invoice', [InvoiceController::class, 'store']);
 Route::get('/invoice/{invoice}', [InvoiceController::class, 'show']);
+

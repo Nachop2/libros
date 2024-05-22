@@ -24,13 +24,11 @@ class StoreInvoiceRequest extends FormRequest
         return [
             'clientName' => 'required',
             'clientAddress' => 'required',
-            'clientCity' => 'required',
-            'clientZip' => 'required',
-            'clientCountry' => 'required',
+            'clientLocation' => 'required',
+            'clientCIF' => 'required',
             'books' => 'required',
-            'invoiceDate' => 'nullable',
+            'tax' => 'required'
             // prepare isbn13 '/^97[89][0-9]{10}$/'
         ];
-
     }
 }

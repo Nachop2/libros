@@ -15,15 +15,12 @@ return new class extends Migration
             $table->id();
             $table->string('clientName');
             $table->string('clientAddress');
-            $table->string('clientCity');
-            $table->string('clientZip');
-            $table->string('clientCountry');
-            $table->dateTime('invoiceDate')->nullable();
-
+            $table->string('clientLocation');
+            $table->string('clientCIF');
+            $table->string('tax');
             $table->timestamps();
         });
     }
-
     /**
      * Reverse the migrations.
      */

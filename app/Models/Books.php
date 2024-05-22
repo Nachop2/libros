@@ -20,6 +20,6 @@ class Books extends Model
 
     public function invoices()
     {
-        return $this->belongsToMany(Invoice::class)->withPivot('amountSold','donation');
+        return $this->belongsToMany(Invoice::class)->withPivot('amountSold','donation','soldAt');
     }
 }

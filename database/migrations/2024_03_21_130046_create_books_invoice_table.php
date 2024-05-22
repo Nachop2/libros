@@ -15,10 +15,11 @@ return new class extends Migration
             $table->unsignedBigInteger("books_id");
             $table->unsignedBigInteger("invoice_id");
 
-
             $table->foreign('books_id')->references('id')->on('books');
+
             $table->foreign('invoice_id')->references('id')->on('invoices');
             $table->integer('amountSold');
+            $table->decimal('priceSold');
             $table->boolean('donation')->default(false);
         });
     }

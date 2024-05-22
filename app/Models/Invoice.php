@@ -12,14 +12,13 @@ class Invoice extends Model
     protected $fillable = [
         'clientName',
         'clientAddress',
-        'clientCity',
-        'clientZip',
-        'clientCountry',
-        'invoiceDate'
+        'clientLocation',
+        'clientCIF',
+        'tax',
     ];
 
     public function books()
     {
-        return $this->belongsToMany(Books::class)->withPivot('amountSold','donation');
+        return $this->belongsToMany(Books::class)->withPivot('amountSold','donation','priceSold');
     }
 }
