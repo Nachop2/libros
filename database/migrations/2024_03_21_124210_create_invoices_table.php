@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('invoices', function (Blueprint $table) {
             $table->id();
             $table->string('clientName');
+            $table->string('clientCountry');
             $table->string('clientAddress');
             $table->string('clientLocation');
             $table->string('clientCIF');

@@ -23,6 +23,7 @@ class StoreInvoiceRequest extends FormRequest
     {
         return [
             'clientName' => 'required',
+            'clientCountry' => 'required',
             'clientAddress' => 'required',
             'clientLocation' => 'required',
             'clientCIF' => 'required',

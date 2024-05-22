@@ -11,6 +11,8 @@ class Invoice extends Model
 
     protected $fillable = [
         'clientName',
+        'clientCountry',
+
         'clientAddress',
         'clientLocation',
         'clientCIF',
