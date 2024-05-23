@@ -76,7 +76,7 @@ class BooksController extends Controller
         ]);
         $book->stock = $request->stock;
         $book->save();
-        return response()->json("The book has been created", 200);
+        return response()->json($book->id, 200);
     }
 
     /**
