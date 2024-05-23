@@ -14,7 +14,9 @@ class InvoiceController extends Controller
      */
     public function index()
     {
-        //
+        $invoices = Invoice::orderBy('id')->paginate(20);
+
+        return response()->json($invoices, 200);
     }
 
     /**
