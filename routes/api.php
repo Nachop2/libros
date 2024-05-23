@@ -22,18 +22,20 @@ Route::middleware(['auth:sanctum'])->get('/user', function (Request $request) {
 
     
 });
-Route::get('/books', [BooksController::class, 'index']);
-Route::put('/book/add/{book}/{amount}', [BooksController::class, 'addStock']);
-Route::put('/book/sell/{book}/{amount}', [BooksController::class, 'removeStock']);
-Route::post('/book', [BooksController::class, 'store']);
-Route::get('/book/{book}', [BooksController::class, 'show']);
-Route::put('/book/{book}', [BooksController::class, 'update']);
-Route::delete('/book/{book}', [BooksController::class, 'destroy']);
-Route::get('/books/search', [BooksController::class, 'search']);
-Route::post('/invoice', [InvoiceController::class, 'store']);
-Route::get('/invoices', [InvoiceController::class, 'index']);
+Route::middleware(['auth:sanctum'])->group(function () {
+    Route::get('/books', [BooksController::class, 'index']);
+    Route::put('/book/add/{book}/{amount}', [BooksController::class, 'addStock']);
+    Route::put('/book/sell/{book}/{amount}', [BooksController::class, 'removeStock']);
+    Route::post('/book', [BooksController::class, 'store']);
+    Route::get('/book/{book}', [BooksController::class, 'show']);
+    Route::put('/book/{book}', [BooksController::class, 'update']);
+    Route::delete('/book/{book}', [BooksController::class, 'destroy']);
+    Route::get('/books/search', [BooksController::class, 'search']);
+    Route::post('/invoice', [InvoiceController::class, 'store']);
+    Route::get('/invoices', [InvoiceController::class, 'index']);
+    Route::get('/invoice/{invoice}', [InvoiceController::class, 'show']);
+});
 
-Route::get('/invoice/{invoice}', [InvoiceController::class, 'show']);
 
 Route::middleware(['auth:sanctum','admin'])->group(function () {
     Route::post('/admin/users', [App\Http\Controllers\AdminUserController::class, 'store']);
