@@ -35,3 +35,9 @@ Route::get('/invoices', [InvoiceController::class, 'index']);
 
 Route::get('/invoice/{invoice}', [InvoiceController::class, 'show']);
 
+Route::middleware(['auth:sanctum','admin'])->group(function () {
+    Route::post('/admin/users', [App\Http\Controllers\AdminUserController::class, 'store']);
+    Route::put('/admin/users/{id}/reset-password', [App\Http\Controllers\AdminUserController::class, 'resetPassword']);
+    Route::delete('/admin/users/{id}', [App\Http\Controllers\AdminUserController::class, 'destroy']);
+    Route::get('/admin/users', [App\Http\Controllers\AdminUserController::class, 'index']);
+});
