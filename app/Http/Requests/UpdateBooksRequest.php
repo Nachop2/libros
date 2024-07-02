@@ -23,7 +23,7 @@ class UpdateBooksRequest extends FormRequest
     {
         return [
             'name' => 'required',
-            'isbn' => 'required|regex:/^[0-9]{9}[0-9X]$/',
+            'isbn' => 'required',
             'author' => 'required',
             'imprenta' => 'required',
             'price' => 'required',
