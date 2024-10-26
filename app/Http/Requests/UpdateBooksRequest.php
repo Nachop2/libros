@@ -26,9 +26,9 @@ class UpdateBooksRequest extends FormRequest
             'isbn' => 'required',
             'author' => 'required',
             'imprenta' => 'required',
-            'stock' => 'required',
-            'price' => 'required',
-            'sellingAt' => 'required',
+            'stock' => 'required|integer',
+            'price' => 'required|numeric',
+            'sellingAt' => 'required|numeric',
             // prepare isbn13 '/^97[89][0-9]{10}$/'
         ];
     }
@@ -42,13 +42,14 @@ class UpdateBooksRequest extends FormRequest
             'author.required' => 'El autor es requerido.',
             'imprenta.required' => 'La imprenta es requerida.',
             'stock.required' => 'El stock es requerido.',
-//            'stock.integer' => 'El stock debe ser un número entero.',
+            'stock.integer' => 'El stock debe ser un número entero.',
 //            'stock.min' => 'El stock no puede ser negativo.',
             'price.required' => 'El precio es requerido.',
-//            'price.numeric' => 'El precio debe ser un número.',
+            'price.numeric' => 'El precio debe ser un número.',
 //            'price.min' => 'El precio debe ser mayor que cero.',
             'sellingAt.required' => 'El precio de venta es requerida.',
-//            'sellingAt.date_format' => 'La fecha de venta debe estar en formato YYYY-MM-DD.',
+            'sellingAt.numeric' => 'El precio debe ser un número.',
+
         ];
     }
 }
